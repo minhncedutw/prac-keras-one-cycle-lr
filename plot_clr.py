@@ -25,8 +25,8 @@ x = Dense(5, activation='relu')(inp)
 x = Dense(1, activation='sigmoid')(x)
 model = Model(inp, x)
 
-clr_triangular = OneCycleLR(NUM_SAMPLES, NUM_EPOCHS, BATCH_SIZE, MAX_LR,
-                            end_percentage=0.2, scale_percentage=0.2)
+# clr_triangular = OneCycleLR(NUM_SAMPLES, NUM_EPOCHS, BATCH_SIZE, MAX_LR, end_percentage=0.2, scale_percentage=0.2)
+clr_triangular = OneCycleLR(max_lr=MAX_LR, end_percentage=0.2, scale_percentage=0.2)
 
 model.compile(optimizer=SGD(0.1), loss='binary_crossentropy', metrics=['accuracy'])
 
